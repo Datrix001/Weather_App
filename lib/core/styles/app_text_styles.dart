@@ -18,10 +18,23 @@ final class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.black,
   );
+  static final h3 = TextStyle(
+    fontFamily: FontFamily.inter,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w100,
+    color: AppColors.black,
+  );
   static final h4 = TextStyle(
     fontFamily: FontFamily.inter,
     fontSize: 15.sp,
     fontWeight: FontWeight.w100,
     color: AppColors.black.withAlpha(40),
+  );
+
+  static final h3Body = TextStyle(
+    fontFamily: FontFamily.inter,
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w100,
+    color: AppColors.black,
   );
 }

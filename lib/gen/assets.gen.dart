@@ -53,8 +53,17 @@ class $AssetsSvgGen {
   /// File path: assets/svg/cludy.svg
   String get cludy => 'assets/svg/cludy.svg';
 
+  /// File path: assets/svg/humidity.svg
+  String get humidity => 'assets/svg/humidity.svg';
+
   /// File path: assets/svg/menu.svg
   String get menu => 'assets/svg/menu.svg';
+
+  /// File path: assets/svg/point.svg
+  String get point => 'assets/svg/point.svg';
+
+  /// File path: assets/svg/rainfall.svg
+  String get rainfall => 'assets/svg/rainfall.svg';
 
   /// File path: assets/svg/rainy.svg
   String get rainy => 'assets/svg/rainy.svg';
@@ -68,8 +77,23 @@ class $AssetsSvgGen {
   /// File path: assets/svg/sunny.svg
   String get sunny => 'assets/svg/sunny.svg';
 
+  /// File path: assets/svg/wind.svg
+  String get wind => 'assets/svg/wind.svg';
+
   /// List of all assets
-  List<String> get values => [cloudy, cludy, menu, rainy, search, shade, sunny];
+  List<String> get values => [
+    cloudy,
+    cludy,
+    humidity,
+    menu,
+    point,
+    rainfall,
+    rainy,
+    search,
+    shade,
+    sunny,
+    wind,
+  ];
 }
 
 class Assets {
