@@ -5,8 +5,16 @@ import 'package:weather_app/core/styles/app_text_styles.dart';
 import 'package:weather_app/gen/assets.gen.dart';
 import 'package:weather_app/gen/colors.gen.dart';
 
+// I need to add WeatherType model so that it avoid repetion of switch case
+
 class WeatherBox extends StatelessWidget {
-  const WeatherBox({super.key});
+  final WeatherType weatherType;
+  final String weatherInfo;
+  const WeatherBox({
+    super.key,
+    required this.weatherType,
+    required this.weatherInfo,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +29,70 @@ class WeatherBox extends StatelessWidget {
         padding: EdgeInsets.only(left: 10.w, right: 50.w),
         child: Row(
           children: [
-            SvgPicture.asset(Assets.svg.rainfall, height: 100.h),
-            Text("Rainfall", style: AppTextStyles.h3Body),
-            Spacer(),
-            Text("3cm", style: AppTextStyles.h3Body),
+            SizedBox(
+              height: 50.h,
+              width: 50.w,
+              child: WeatherType == WeatherType.humidity
+                  ? SvgPicture.asset(weatherType.icon, height: 60.h)
+                  : Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: SvgPicture.asset(
+                        weatherType.icon,
+                        height: 60.h,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+            ),
+            12.horizontalSpace,
+            Text(weatherType.label, style: AppTextStyles.h3Body),
+            const Spacer(),
+            Text(
+              "$weatherInfo${weatherType.unit}",
+              style: AppTextStyles.h3Body,
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+enum WeatherType { rainfall, wind, humidity }
+
+extension WeatherTypeConfig on WeatherType {
+  String get label {
+    switch (this) {
+      case WeatherType.rainfall:
+        return "Rainfall";
+      case WeatherType.wind:
+        return "Wind";
+      case WeatherType.humidity:
+        return "Humidity";
+    }
+  }
+
+  String get unit {
+    switch (this) {
+      case WeatherType.rainfall:
+        return "cm";
+      case WeatherType.wind:
+        return "km/h";
+      case WeatherType.humidity:
+        return "%";
+    }
+  }
+
+  String get icon {
+    switch (this) {
+      case WeatherType.rainfall:
+        return Assets.svg.rainfall;
+      case WeatherType.wind:
+        return Assets.svg.wind;
+      case WeatherType.humidity:
+        return Assets.svg.humidity;
+    }
   }
 }

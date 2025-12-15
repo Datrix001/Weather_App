@@ -34,7 +34,7 @@ final class AppTextStyles {
   static final h3Body = TextStyle(
     fontFamily: FontFamily.inter,
     fontSize: 15.sp,
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
     color: AppColors.black,
   );
 }
