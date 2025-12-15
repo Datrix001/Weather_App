@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,23 +30,22 @@ class WeatherBox extends StatelessWidget {
         padding: EdgeInsets.only(left: 10.w, right: 50.w),
         child: Row(
           children: [
-            SizedBox(
-              height: 50.h,
-              width: 50.w,
-              child: WeatherType == WeatherType.humidity
-                  ? SvgPicture.asset(weatherType.icon, height: 60.h)
-                  : Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SvgPicture.asset(
-                        weatherType.icon,
-                        height: 60.h,
-                        fit: BoxFit.contain,
-                      ),
+            weatherType == WeatherType.humidity
+                ? 20.horizontalSpace
+                : const SizedBox.shrink(),
+            weatherType == WeatherType.humidity
+                ? Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-            ),
+                    child: SvgPicture.asset(weatherType.icon, height: 50.h),
+                  )
+                : SvgPicture.asset(
+                    weatherType.icon,
+                    height: 100.h,
+                    width: 100.h,
+                  ),
             12.horizontalSpace,
             Text(weatherType.label, style: AppTextStyles.h3Body),
             const Spacer(),
