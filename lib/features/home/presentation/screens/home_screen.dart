@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pushNamed(context, "/forecast"),
             icon: SvgPicture.asset(Assets.svg.menu, width: 30.w, height: 30.h),
           ),
         ],

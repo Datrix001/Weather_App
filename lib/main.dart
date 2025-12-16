@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_app/features/home/presentation/screens/forecast_screen.dart';
 import 'package:weather_app/features/home/presentation/screens/home_screen.dart';
 
 void main() {
@@ -17,7 +18,10 @@ class MainApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          routes: {"/": (context) => const HomeScreen()},
+          routes: {
+            "/": (context) => const HomeScreen(),
+            "/forecast": (context) => ForecastScreen(),
+          },
         );
       },
     );

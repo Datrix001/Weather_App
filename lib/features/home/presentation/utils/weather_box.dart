@@ -95,4 +95,8 @@ extension WeatherTypeConfig on WeatherType {
         return Assets.svg.humidity;
     }
   }
+
+  bool get needsBackground {
+    return this == WeatherType.humidity;
+  }
 }
